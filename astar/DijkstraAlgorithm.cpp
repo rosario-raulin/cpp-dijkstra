@@ -36,10 +36,6 @@ DijkstraAlgorithm::find(int from, int to) const {
     int prev[_graph->V()];
     
     for (int i = 0; i < _graph->V(); ++i) {
-        prev[i] = 0;
-    }
-    
-    for (int i = 0; i < _graph->V(); ++i) {
         _distances[i] = INFINITY;
     }
     _distances[from] = 0;
