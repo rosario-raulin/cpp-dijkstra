@@ -10,7 +10,6 @@
 #include "DijkstraAlgorithm.hpp"
 
 #include <iostream>
-#include <stack>
 
 int main(int argc, const char * argv[])
 {
@@ -25,13 +24,11 @@ int main(int argc, const char * argv[])
     graph.addEdge(4, 5, 20.0);
     
     DijkstraAlgorithm pfinder(&graph);
+    auto path = pfinder.find(0, 5);
     
-    std::stack<int> path = pfinder.find(0, 5);
-
     while (!path.empty()) {
-        int next = path.top();
+        std::cout << path.top() << std::endl;
         path.pop();
-        std::cout << next << std::endl;
     }
     
     return 0;
