@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		1A139464178F093D007A0FE8 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A139463178F093D007A0FE8 /* main.cpp */; };
 		1A139466178F093D007A0FE8 /* astar.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1A139465178F093D007A0FE8 /* astar.1 */; };
+		1A139475178F0F25007A0FE8 /* ListGraph.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A139473178F0F25007A0FE8 /* ListGraph.cpp */; };
+		1A139478178F15E6007A0FE8 /* DijkstraAlgorithm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A139476178F15E6007A0FE8 /* DijkstraAlgorithm.cpp */; };
+		1A13947C178F21FE007A0FE8 /* Edge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A13947A178F21FD007A0FE8 /* Edge.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +31,14 @@
 		1A139460178F093D007A0FE8 /* astar */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = astar; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A139463178F093D007A0FE8 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		1A139465178F093D007A0FE8 /* astar.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = astar.1; sourceTree = "<group>"; };
+		1A139472178F0D4C007A0FE8 /* IGraph.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; path = IGraph.hpp; sourceTree = "<group>"; };
+		1A139473178F0F25007A0FE8 /* ListGraph.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ListGraph.cpp; sourceTree = "<group>"; };
+		1A139474178F0F25007A0FE8 /* ListGraph.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ListGraph.hpp; sourceTree = "<group>"; };
+		1A139476178F15E6007A0FE8 /* DijkstraAlgorithm.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DijkstraAlgorithm.cpp; sourceTree = "<group>"; };
+		1A139477178F15E6007A0FE8 /* DijkstraAlgorithm.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = DijkstraAlgorithm.hpp; sourceTree = "<group>"; };
+		1A139479178F161D007A0FE8 /* IPathFinder.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = IPathFinder.hpp; sourceTree = "<group>"; };
+		1A13947A178F21FD007A0FE8 /* Edge.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Edge.cpp; sourceTree = "<group>"; };
+		1A13947B178F21FE007A0FE8 /* Edge.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Edge.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +73,14 @@
 			children = (
 				1A139463178F093D007A0FE8 /* main.cpp */,
 				1A139465178F093D007A0FE8 /* astar.1 */,
+				1A139472178F0D4C007A0FE8 /* IGraph.hpp */,
+				1A139473178F0F25007A0FE8 /* ListGraph.cpp */,
+				1A139474178F0F25007A0FE8 /* ListGraph.hpp */,
+				1A139476178F15E6007A0FE8 /* DijkstraAlgorithm.cpp */,
+				1A13947A178F21FD007A0FE8 /* Edge.cpp */,
+				1A13947B178F21FE007A0FE8 /* Edge.hpp */,
+				1A139477178F15E6007A0FE8 /* DijkstraAlgorithm.hpp */,
+				1A139479178F161D007A0FE8 /* IPathFinder.hpp */,
 			);
 			path = astar;
 			sourceTree = "<group>";
@@ -118,6 +137,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A139464178F093D007A0FE8 /* main.cpp in Sources */,
+				1A139475178F0F25007A0FE8 /* ListGraph.cpp in Sources */,
+				1A139478178F15E6007A0FE8 /* DijkstraAlgorithm.cpp in Sources */,
+				1A13947C178F21FE007A0FE8 /* Edge.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -186,14 +208,18 @@
 		1A13946A178F093D007A0FE8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRINGS_FILE_OUTPUT_ENCODING = "UTF-8";
 			};
 			name = Debug;
 		};
 		1A13946B178F093D007A0FE8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRINGS_FILE_OUTPUT_ENCODING = "UTF-8";
 			};
 			name = Release;
 		};
