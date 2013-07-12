@@ -10,25 +10,59 @@
 #include "DijkstraAlgorithm.hpp"
 
 #include <iostream>
+#include <sstream>
+#include <cstdlib>
+#include <ctime>
+#include <cassert>
 
 int main(int argc, const char * argv[])
 {
-    ListGraph graph(6);
-    
-    graph.addEdge(0, 1, 10.0);
-    graph.addEdge(0, 2, 5.0);
-    graph.addEdge(1, 3, 5.0);
-    graph.addEdge(2, 4, 3.0);
-    graph.addEdge(3, 5, 5.0);
-    graph.addEdge(4, 3, 3.0);
-    graph.addEdge(4, 5, 20.0);
-    
-    DijkstraAlgorithm pfinder(&graph);
-    auto path = pfinder.find(0, 5);
-    
-    while (!path.empty()) {
-        std::cout << path.top() << std::endl;
-        path.pop();
+    if (argc >= 1) {
+        std::stringstream os;
+        
+        os << argv[1];
+        size_t vertices;
+        os >> vertices;
+        
+        if (vertices > 0) {
+            std::cout << "Generating graph with " << vertices << " vertices." << std::endl;
+            
+            srand(time(NULL));
+            
+            //int from = rand() % vertices;
+            int from = 0;
+            int to = rand() % vertices;
+            
+            auto graph = std::make_shared<ListGraph>(vertices);
+            
+            for (int i = 0; i < vertices; ++i) {
+                for (int j = 0; j < vertices; ++j) {
+                    if (j != i) {
+                        int weight = rand() % 1000;
+                        graph->addEdge(i, j, weight);
+                    }
+                }
+            }
+            
+            assert(graph->V() == vertices);
+            
+            std::cout << "calculating path from " << from << " to " << to << std::endl;
+
+            DijkstraAlgorithm pfinder(graph);
+            auto path = pfinder.find(from, to);
+            
+            while (!path->empty()) {
+                std::cout << path->top() << std::endl;
+                path->pop();
+            }
+            
+            path.reset();
+            graph.reset();
+        } else {
+            std::cerr << "error: graph can't be empty!" << std::endl;
+        }
+    } else {
+        std::cerr << "usage: " << argv[0] << " number-of-vertices number-of-edges" << std::endl;
     }
     
     return 0;

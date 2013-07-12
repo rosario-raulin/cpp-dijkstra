@@ -17,7 +17,7 @@ class ListGraph : public IGraph {
 private:
     size_t _v;
     size_t _e;
-    std::vector<Edge>* _adj;
+    std::unique_ptr<std::vector<Edge>[]> _adj;
     
 public:
     ListGraph(int size);
@@ -26,9 +26,10 @@ public:
     
     size_t V() const;
     size_t E() const;
-    std::vector<Edge> adj(int from) const;
+    std::vector<Edge>* adj(int from) const;
 
     void addEdge(int from, int to, double weight);
+    bool hasEdge(int from, int to) const;
 };
 
 #endif /* defined(__astar__ListGraph__) */

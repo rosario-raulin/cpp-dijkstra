@@ -16,17 +16,17 @@
 
 class DijkstraAlgorithm : public IPathFinder {
 private:
-    IGraph* _graph;
-    double* _distances;
+    std::shared_ptr<IGraph> _graph;
+    std::unique_ptr<double[]> _distances;
     
     bool compare(const int& x, const int& y) const;
     
 public:
-    DijkstraAlgorithm(IGraph* graph);
+    DijkstraAlgorithm(std::shared_ptr<IGraph> graph);
     DijkstraAlgorithm(const DijkstraAlgorithm& other);
     ~DijkstraAlgorithm();
     
-    std::stack<int> find(int from, int to) const;
+    std::shared_ptr<std::stack<int> > find(int from, int to) const;
 };
 
 #endif /* defined(__astar__DijkstraAlgorithm__) */

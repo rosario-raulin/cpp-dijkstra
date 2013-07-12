@@ -39,6 +39,7 @@
 		1A139479178F161D007A0FE8 /* IPathFinder.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = IPathFinder.hpp; sourceTree = "<group>"; };
 		1A13947A178F21FD007A0FE8 /* Edge.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Edge.cpp; sourceTree = "<group>"; };
 		1A13947B178F21FE007A0FE8 /* Edge.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Edge.hpp; sourceTree = "<group>"; };
+		1A273592178F586D0088B886 /* BinaryHeap.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BinaryHeap.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +82,7 @@
 				1A13947B178F21FE007A0FE8 /* Edge.hpp */,
 				1A139477178F15E6007A0FE8 /* DijkstraAlgorithm.hpp */,
 				1A139479178F161D007A0FE8 /* IPathFinder.hpp */,
+				1A273592178F586D0088B886 /* BinaryHeap.hpp */,
 			);
 			path = astar;
 			sourceTree = "<group>";
@@ -242,6 +244,7 @@
 				1A13946B178F093D007A0FE8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -7,6 +7,7 @@
 //
 
 #include "ListGraph.hpp"
+#include <algorithm>
 
 
 ListGraph::ListGraph(int size) : _v(size), _e(0), _adj(new std::vector<Edge>[size]) {
@@ -16,7 +17,7 @@ ListGraph::ListGraph(const ListGraph& other) : _v(other._v), _e(other._e), _adj(
 }
 
 ListGraph::~ListGraph() {
-    delete [] _adj;
+    _adj.reset();
 }
 
 size_t
@@ -29,16 +30,23 @@ ListGraph::E() const {
     return _e;
 }
 
-std::vector<Edge>
+std::vector<Edge>*
 ListGraph::adj(int from) const {
-    auto begin = _adj[from].begin();
-    auto end = _adj[from].end();
-    
-    return std::vector<Edge>(begin, end);
+    return &(_adj[from]);
 }
 
 void
 ListGraph::addEdge(int from, int to, double weight) {
     ++_e;
     _adj[from].push_back(Edge(from, to, weight));
+}
+
+bool
+ListGraph::hasEdge(int from, int to) const {
+    for (auto it = _adj[from].begin(); it != _adj[from].end(); ++it) {
+        if (it->to() == to) {
+            return true;
+        }
+    }
+    return false;
 }
