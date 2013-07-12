@@ -15,7 +15,7 @@ class IPathFinder {
 public:
     virtual ~IPathFinder() {}
     
-    virtual std::shared_ptr<std::stack<int> > find(int from, int to) const = 0;
+    virtual const std::stack<int> find(int from, int to) const = 0;
 };
 
 #endif

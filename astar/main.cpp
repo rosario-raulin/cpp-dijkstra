@@ -21,48 +21,45 @@ int main(int argc, const char * argv[])
         std::stringstream os;
         
         os << argv[1];
-        size_t vertices;
+        unsigned int vertices;
         os >> vertices;
         
         if (vertices > 0) {
             std::cout << "Generating graph with " << vertices << " vertices." << std::endl;
             
-            srand(time(NULL));
+            srand((unsigned int) time(NULL));
             
             //int from = rand() % vertices;
             int from = 0;
             int to = rand() % vertices;
             
-            auto graph = std::make_shared<ListGraph>(vertices);
+            ListGraph graph(vertices);
             
             for (int i = 0; i < vertices; ++i) {
                 for (int j = 0; j < vertices; ++j) {
                     if (j != i) {
                         int weight = rand() % 1000;
-                        graph->addEdge(i, j, weight);
+                        graph.addEdge(i, j, weight);
                     }
                 }
             }
             
-            assert(graph->V() == vertices);
+            assert(graph.V() == vertices);
             
             std::cout << "calculating path from " << from << " to " << to << std::endl;
 
             DijkstraAlgorithm pfinder(graph);
             auto path = pfinder.find(from, to);
             
-            while (!path->empty()) {
-                std::cout << path->top() << std::endl;
-                path->pop();
+            while (!path.empty()) {
+                std::cout << path.top() << std::endl;
+                path.pop();
             }
-            
-            path.reset();
-            graph.reset();
         } else {
             std::cerr << "error: graph can't be empty!" << std::endl;
         }
     } else {
-        std::cerr << "usage: " << argv[0] << " number-of-vertices number-of-edges" << std::endl;
+        std::cerr << "usage: " << argv[0] << " number-of-vertices" << std::endl;
     }
     
     return 0;

@@ -26,7 +26,7 @@ public:
     
     size_t V() const;
     size_t E() const;
-    std::vector<Edge>* adj(int from) const;
+    const std::vector<Edge> adj(int from) const;
 
     void addEdge(int from, int to, double weight);
     bool hasEdge(int from, int to) const;

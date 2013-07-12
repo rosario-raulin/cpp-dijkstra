@@ -7,13 +7,14 @@
 //
 
 #include "ListGraph.hpp"
-#include <algorithm>
-
 
 ListGraph::ListGraph(int size) : _v(size), _e(0), _adj(new std::vector<Edge>[size]) {
 }
 
 ListGraph::ListGraph(const ListGraph& other) : _v(other._v), _e(other._e), _adj(new std::vector<Edge>[other._v]) {
+    for (int i = 0; i < _e; ++i) {
+        _adj[i] = other._adj[i];
+    }
 }
 
 ListGraph::~ListGraph() {
@@ -30,9 +31,9 @@ ListGraph::E() const {
     return _e;
 }
 
-std::vector<Edge>*
+const std::vector<Edge>
 ListGraph::adj(int from) const {
-    return &(_adj[from]);
+    return _adj[from];
 }
 
 void

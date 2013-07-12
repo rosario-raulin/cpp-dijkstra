@@ -19,7 +19,7 @@ public:
     
     virtual size_t V() const = 0;
     virtual size_t E() const = 0;
-    virtual std::vector<Edge>* adj(int node) const = 0;
+    virtual const std::vector<Edge> adj(int node) const = 0;
     virtual void addEdge(int from, int to, double weight) = 0;
     virtual bool hasEdge(int from, int to) const = 0;
 };
